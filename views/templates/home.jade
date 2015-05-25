@@ -1,0 +1,17 @@
+form(ng-submit="addProfile()").well
+	.form-group
+		input.form-control(type="text", placeholder="Enter your Name...", ng-model="newProfile.name")
+	.form-group
+		input.form-control(type="text", placeholder="Enter your foods that are staples in your diet...", ng-model="newProfile.staples")
+	.form-group
+		input.form-control(type="text", placeholder="Enter your snacks...", ng-model="newProfile.snacks")
+	.form-group
+		input.form-control(type="text", placeholder="Enter foods that you are curious about...", ng-model="newProfile.curious")
+	
+
+input(type="text", placeholder="Search...", ng-model="seach")
+
+div.news-item.row(ng-repeat="profile in profiles | filter: search")
+	aipprofile(aip="profile")
+	
+	
