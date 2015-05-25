@@ -26,8 +26,8 @@ var apiController = {
 	},
 
 	snacks: function(req, res){
-		console.log('snacks Test', req);
-		Profile.find({}, function(err,profiles){
+		// This my friend, is how you locate the snacks inside all users profiles
+		Profile.find({}, function(err, profiles){
 			var snacks = _.chain(profiles)
 				.pluck('snacks').flatten()
 				.uniq()

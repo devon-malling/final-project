@@ -6,6 +6,7 @@ aipApp.config(function($routeProvider){
 			templateUrl: '/templates/home',
 			controller: 'aipProfileListController'
 		})
+		// use this when you want to create a view for your individual profiles
 		.when('/view/:id',{
 			templateUrl: '/templates/view',
 			controller: 'viewController'
