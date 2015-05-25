@@ -7,42 +7,63 @@ aipApp.config(function($routeProvider){
 			controller: 'aipProfileListController'
 		})
 		.when('/view/:id',{
-			templateUrl: '/temlates/view',
+			templateUrl: '/templates/view',
 			controller: 'viewController'
+		})
+		.when('/snackLibrary',{
+			templateUrl: '/templates/snackLibrary',
+			controller:'snackLibraryController'
 		});
 });
 
-aipApp.factory('aipProfiles', function($resource){
+aipApp.factory('profileTemplate', function($resource){
 	var model = $resource('api/aip/:id', {id: '@_id'});
 	return{
 		model: model,
-		items: model.query()
+		profiles: model.query()
 	};
 });
 
-aipApp.controller('aipProfileListController', function($scope, aipProfiles){
-	$scope.profiles = aipProfiles.profiles;
+aipApp.controller('aipProfileListController', function($scope, profileTemplate){
+	$scope.profiles = profileTemplate.profiles;
+	console.log('TEST', $scope.profiles);
 
 	$scope.addProfile = function(){
-		var newProfile = new aipProfile.model(this.newProfile);
+		var newProfile = new profileTemplate.model(this.newProfile);
 		newProfile.$save(function(savedProfile){
-			aipProfiles.profiles.push(savedProfile);
+			profileTemplate.profiles.push(savedProfile);
 		});
 		this.newProfile ={};
 	};
 });
 
-aipApp.controller('viewController', function($scope, aipProfiles, $routeParams){
+aipApp.controller('viewController', function($scope, profileTemplate, $routeParams){
 	console.log($routeParams.id);
 	var profileId = $routeParams.id;
 
-	$scope.aip = aipProfiles.model.get({_id: profileId});
+	$scope.aip = profileTemplate.model.get({_id: profileId});
 });
 
-aipApp.directive('aipprofile', function(){
+// Snacks factory
+aipApp.factory('snackLibrary', function($resource){
+	var model = $resource('api/snacks/:id', {id: '@_id'});
+	return{
+		model: model,
+		snacks: model.query()
+	};
+});
+
+
+// snacks controller
+aipApp.controller('snackLibraryController', function($scope, snackLibrary){
+	console.log('TEST', $scope.snacks);
+	$scope.snacks = snackLibrary.snacks;
+});
+
+aipApp.directive('profiletemplate', function(){
 	return{
 		restrict: 'E',
-		templateUrl: '/templates/aipProfile',
+		templateUrl: '/templates/profileTemplate',
 		scope: {
 			aip: '='
 		}

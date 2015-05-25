@@ -1,7 +1,7 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var indexController = require('./controllers/index.js');
-var apiController = require('.controllers/api.js');
+var apiController = require('./controllers/api.js');
 
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/angular-aip-profiles');
@@ -21,7 +21,8 @@ app.get('/templates/:templateName', indexController.templates);
 
 // Api methods:
 app.get('/api/aip', apiController.getAll);
-app.post('api/aip', apiController.addProfile);
+app.post('/api/aip', apiController.addProfile);
+app.get('/api/snacks', apiController.snacks);
 
 var server = app.listen(7600, function() {
 	console.log('Express server listening on port ' + server.address().port);

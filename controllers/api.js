@@ -1,4 +1,5 @@
 var Profile = require('../models/profile.js');
+var _ = require('../node_modules/underscore/underscore.js');
 
 var apiController = {
 
@@ -6,10 +7,12 @@ var apiController = {
 		var requestedId = req.query._id;
 		if(requestedId){
 			Profile.findById(requestId, function(err, result){
+				console.log(result);
 				res.send(result);
 			});
 		} else {
 			Profile.find({}, function(err, results){
+				console.log(results);
 				res.send(results);
 			});
 		}
@@ -19,6 +22,17 @@ var apiController = {
 		var profile = new Profile(req.body);
 		profile.save(function(err, result){
 			res.send(result);
+		});
+	},
+
+	snacks: function(req, res){
+		console.log('snacks Test', req);
+		Profile.find({}, function(err,profiles){
+			var snacks = _.chain(profiles)
+				.pluck('snacks').flatten()
+				.uniq()
+				.value();
+			res.send(snacks);
 		});
 	}
 };

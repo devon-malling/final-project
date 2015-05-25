@@ -1,3 +1,5 @@
+a(class='button' href="#/snackLibrary") Snack Library
+
 form(ng-submit="addProfile()").well
 	.form-group
 		input.form-control(type="text", placeholder="Enter your Name...", ng-model="newProfile.name")
@@ -7,11 +9,15 @@ form(ng-submit="addProfile()").well
 		input.form-control(type="text", placeholder="Enter your snacks...", ng-model="newProfile.snacks")
 	.form-group
 		input.form-control(type="text", placeholder="Enter foods that you are curious about...", ng-model="newProfile.curious")
+	.form-group
+		input.btn.btn-primary(type="submit", value="Create Profile")
 	
 
 input(type="text", placeholder="Search...", ng-model="seach")
-
+//- 'profiles' here is the main connector all the way back to your aip factory
 div.news-item.row(ng-repeat="profile in profiles | filter: search")
-	aipprofile(aip="profile")
+	//- aipprofile relates to aipprofile.jade
+	profiletemplate(aip="profile")
+
 	
 	
