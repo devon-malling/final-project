@@ -23,6 +23,8 @@ app.get('/templates/:templateName', indexController.templates);
 app.get('/api/aip', apiController.getAll);
 app.post('/api/aip', apiController.addProfile);
 app.get('/api/snacks', apiController.snacks);
+app.get('/api/curious_foods_library', apiController.curiousFoods);
+app.delete('/api/aip/:aipId', apiController.deleteProfile);
 
 var server = app.listen(7600, function() {
 	console.log('Express server listening on port ' + server.address().port);

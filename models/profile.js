@@ -4,7 +4,7 @@ var profileSchema = mongoose.Schema({
 	name: String,
 	staples: Array,
 	snacks: Array,
-	curious: Array
+	curiousFoods: Array
 });
 
 module.exports = mongoose.model('profile', profileSchema);

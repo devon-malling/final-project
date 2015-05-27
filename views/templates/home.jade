@@ -1,5 +1,6 @@
-a(class='button' href="#/snackLibrary") Snack Library
-
+a(class='button' href="#/snack_library") Snack Library
+a(class='button' href="#/curious_foods_library") Curious Foods
+h2 Create a Profile...
 form(ng-submit="addProfile()").well
 	.form-group
 		input.form-control(type="text", placeholder="Enter your Name...", ng-model="newProfile.name")
@@ -8,7 +9,7 @@ form(ng-submit="addProfile()").well
 	.form-group
 		input.form-control(type="text", placeholder="Enter your snacks...", ng-model="newProfile.snacks")
 	.form-group
-		input.form-control(type="text", placeholder="Enter foods that you are curious about...", ng-model="newProfile.curious")
+		input.form-control(type="text", placeholder="Enter foods that you are curious about...", ng-model="newProfile.curiousFoods")
 	.form-group
 		input.btn.btn-primary(type="submit", value="Create Profile")
 	

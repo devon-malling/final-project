@@ -25,6 +25,14 @@ var apiController = {
 		});
 	},
 
+	deleteProfile: function(req,res){
+		var aipId = req.params.aipId;
+		Profile.findByIdAndRemove(aipId, function(err, results){
+			res.send(results);
+		});
+	},
+
+
 	snacks: function(req, res){
 		// This my friend, is how you locate the snacks inside all users profiles
 		Profile.find({}, function(err, profiles){
@@ -33,6 +41,16 @@ var apiController = {
 				.uniq()
 				.value();
 			res.send(snacks);
+		});
+	},
+	curiousFoods: function(req, res) {
+		Profile.find({}, function(err, profiles){
+			var curiousFoods = _.chain(profiles)
+				.pluck('curiousFoods').flatten()
+				.uniq()
+				.value();
+			console.log(curiousFoods);
+			res.send(curiousFoods);
 		});
 	}
 };
