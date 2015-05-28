@@ -75,9 +75,22 @@ aipApp.factory('curiousFoodsLibrary', function($resource){
 });
 
 // curiousFoodsController
-aipApp.controller('curiousFoodsLibraryController', function($scope, curiousFoodsLibrary){
+aipApp.controller('curiousFoodsLibraryController', function($scope, $http, curiousFoodsLibrary){
 	console.log('CURIOUS FOODS TEST', $scope.curiousFoods);
 	$scope.curiousFoods = curiousFoodsLibrary.curiousFoods;
+	$scope.name = '';
+	$scope.sharedCuriousFoods = function(){
+		console.log('dude bro');
+		console.log($scope.name);
+		$http.get('/api/shared_curious_foods/' + $scope.name)
+			.success(function(data){
+				console.log(data);
+				// assign to a scope and then on dom ng repeat and display each user
+			})
+			.error(function(data){
+				console.log(data);
+			});
+	};
 });
 
 

@@ -1,6 +1,8 @@
 a(class='button' href="#/snack_library") Snack Library
 a(class='button' href="#/curious_foods_library") Curious Foods
+
 h2 Create a Profile...
+
 form(ng-submit="addProfile()").well
 	.form-group
 		input.form-control(type="text", placeholder="Enter your Name...", ng-model="newProfile.name")
@@ -17,7 +19,8 @@ form(ng-submit="addProfile()").well
 input(type="text", placeholder="Search...", ng-model="seach")
 //- 'profiles' here is the main connector all the way back to your aip factory
 div.news-item.row(ng-repeat="profile in profiles | filter: search")
-	//- aipprofile relates to aipprofile.jade
+	//- profileTemplate relates to profileTemplate.jade
+	//- this is creating a custom attribute
 	profiletemplate(aip="profile")
 
 	

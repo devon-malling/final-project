@@ -25,6 +25,7 @@ app.post('/api/aip', apiController.addProfile);
 app.get('/api/snacks', apiController.snacks);
 app.get('/api/curious_foods_library', apiController.curiousFoods);
 app.delete('/api/aip/:aipId', apiController.deleteProfile);
+app.get('/api/shared_curious_foods/:name', apiController.sharedCuriousFoods);
 
 var server = app.listen(7600, function() {
 	console.log('Express server listening on port ' + server.address().port);

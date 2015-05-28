@@ -1,3 +1,17 @@
 a(class='button' href="#/") Home
+//- 
+form(ng-submit="sharedCuriousFoods()").well
+	h3 Find people with a similar curious foods list
+	.form-group
+		input.form-control(type="text", placeholder="Enter your Name...", ng-model="name" required)
+	.form-group
+		input.btn.btn-default(type="submit", value="Look...")
+	
+	
+
+h3 Browse the snacks library
 div.news-item.row(ng-repeat="curiousFood in curiousFoods")
 	h4 {{curiousFood}}
+	//- how do I get the persons name to show up next to their food item
+	//- div.news-item.row(ng-repeat="profile in profiles")
+	//- 	h6 {{profile.name}} balla
