@@ -56,33 +56,36 @@ var apiController = {
 	},
 	sharedCuriousFoods: function(req, res){
 		
-		// res.send('success');
-
-		// Profile.findById(requestedId, function(err, profiles){
-		// });
 		var matches = [];
+		// This finds the name entered in the form
 		Profile.findOne({'name': req.params.name}, function(err, results){
 			if (err){
 				console.log(err);
 			}
-			
+			// This stores the curious foods of the name entered
 			var userCuriousFoods = results.curiousFoods;
+			// This gets the profiles
 			Profile.find({},function(err, results){
 				if(err){
 					console.log(err);
 				}
-				
+				// This filters through the profiles and returns all 
+				// the names that are not the name entered in the form!
 				var usersToSearch = _.filter(results, function(obj){
 					return obj.name != req.params.name;
 				});
-				
+				// This loops through the filtered profiles
 				for (var i = 0; i < usersToSearch.length; i++) {
-					var foodArray = usersToSearch[i].curiousFoods;
-					for (var j = 0; j < foodArray.length; j++) {
-						
-						var foodBoolean =	_.contains(userCuriousFoods, foodArray[j]);
-						
-						if(foodBoolean){
+					// This stores the users name and their curiousFood list
+					var usersCuriousFoods = usersToSearch[i].curiousFoods;
+					// This loops through the users curiousFoods lists
+					for (var j = 0; j < usersCuriousFoods.length; j++) {
+						// Checks if any thing in foodArray is in userCuriousFoods and returns true 
+						var commonInterest =	_.contains(userCuriousFoods, usersCuriousFoods[j]);
+						//  if common curious foods
+						if(commonInterest){
+							// push the name of that user to the matches 
+							// array
 							matches.push(usersToSearch[i].name);
 						}
 					}

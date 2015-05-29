@@ -61,8 +61,8 @@ aipApp.factory('snackLibrary', function($resource){
 
 // snacks controller
 aipApp.controller('snackLibraryController', function($scope, snackLibrary){
-	console.log(' SNACK TEST', $scope.snacks);
 	$scope.snacks = snackLibrary.snacks;
+	// console.log(' SNACK TEST', $scope.snacks);
 });
 
 // curiousFoods factory
@@ -80,12 +80,12 @@ aipApp.controller('curiousFoodsLibraryController', function($scope, $http, curio
 	$scope.curiousFoods = curiousFoodsLibrary.curiousFoods;
 	$scope.name = '';
 	$scope.sharedCuriousFoods = function(){
-		console.log('dude bro');
 		console.log($scope.name);
+		// This http request is good for this purpose because I am only using it in one place, but if I decide to access this from another place as well, I would need to create a factory, because controllers can't be accesed or something
 		$http.get('/api/shared_curious_foods/' + $scope.name)
 			.success(function(data){
 				console.log(data);
-				// assign to a scope and then on dom ng repeat and display each user
+				$scope.matches = data;
 			})
 			.error(function(data){
 				console.log(data);
