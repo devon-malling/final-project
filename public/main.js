@@ -23,7 +23,7 @@ aipApp.config(function($routeProvider){
 });
 
 aipApp.factory('profileTemplate', function($resource){
-	var model = $resource('api/aip/:id', {id: '@_id'});
+	var model = $resource('api/profile/:id', {id: '@_id'});
 	return{
 		model: model,
 		profiles: model.query()
@@ -43,12 +43,12 @@ aipApp.controller('aipProfileListController', function($scope, profileTemplate){
 	};
 });
 // for view individual profiles
-// aipApp.controller('viewController', function($scope, profileTemplate, $routeParams){
-// 	console.log($routeParams.id);
-// 	var profileId = $routeParams.id;
+aipApp.controller('viewController', function($scope, profileTemplate, $routeParams){
+	console.log($routeParams.id);
+	var profileId = $routeParams.id;
 
-// 	$scope.aip = profileTemplate.model.get({_id: profileId});
-// });
+	$scope.profile = profileTemplate.model.get({_id: profileId});
+});
 
 // Snacks factory
 aipApp.factory('snackLibrary', function($resource){
@@ -99,13 +99,13 @@ aipApp.directive('profiletemplate', function(){
 		restrict: 'E',
 		templateUrl: '/templates/profileTemplate',
 		scope: {
-			aip: '='
+			profile: '='
 		},
 		controller: function($scope, profileTemplate){
-			$scope.deleteProfile = function(aip){
+			$scope.deleteProfile = function(profile){
 				console.log(profileTemplate);
-				this.aip.$remove();
-				profileTemplate.profiles.splice(profileTemplate.profiles.indexOf(aip), 1);
+				this.profile.$remove();
+				profileTemplate.profiles.splice(profileTemplate.profiles.indexOf(profile), 1);
 			};
 		}
 	};
