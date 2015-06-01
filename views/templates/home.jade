@@ -21,7 +21,7 @@ input(type="text", placeholder="Search...", ng-model="seach")
 div.news-item.row(ng-repeat="profile in profiles | filter: search")
 	//- profileTemplate relates to profileTemplate.jade
 	//- this is creating a custom attribute
-	profiletemplate(aip="profile")
+	profiletemplate(profile="profile")
 
 	
 	

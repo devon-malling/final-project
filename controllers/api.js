@@ -86,8 +86,7 @@ var apiController = {
 						if(commonInterest){
 							// push the name of that user to the matches 
 							// array
-							// matches.push(usersToSearch[i].name);
-							matches.push(usersCuriousFoods[j]);
+						matches.push(usersToSearch[i].name);
 						}
 					}
 				}
