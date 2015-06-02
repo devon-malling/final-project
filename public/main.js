@@ -78,6 +78,7 @@ aipApp.factory('curiousFoodsLibrary', function($resource){
 // curiousFoodsController
 aipApp.controller('curiousFoodsLibraryController', function($scope, $http, curiousFoodsLibrary){
 	console.log('CURIOUS FOODS TEST', $scope.curiousFoods);
+	// The model.query() is not the best way to do this but it works for now
 	$scope.profiles = curiousFoodsLibrary.model.query();
 	$scope.name = '';
 	$scope.sharedCuriousFoods = function(){
