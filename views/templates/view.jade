@@ -1,0 +1,12 @@
+a(class='button' onclick="history.back()") back
+&nbsp
+&nbsp
+a(class='button' href="#/") Home
+h1 {{profile.name}}
+h3 Staple Foods
+div(ng-repeat="staple in profile.staples") {{staple}}
+h3 Snacks
+div(ng-repeat="snack in profile.snacks") {{snack}}
+h3 Curious Foods
+div(ng-repeat="curiousFood in profile.curiousFoods") {{curiousFood}}
+.btn.btn-success Send Message

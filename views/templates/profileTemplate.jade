@@ -1,3 +1,5 @@
 .col-sm-10
-	h3 {{aip.name}}
-	button.btn.btn-default(ng-click="deleteProfile(aip)") Delete
+	h3 {{profile.name}}
+	a(ng-href="#/view/{{profile._id}}") View
+	&nbsp
+	button.btn.btn-default(ng-click="deleteProfile(profile)") Delete

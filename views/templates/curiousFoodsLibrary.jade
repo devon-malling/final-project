@@ -7,16 +7,20 @@ form(ng-submit="sharedCuriousFoods()").well
 	.form-group
 		input.btn.btn-default(type="submit", value="Look...")
 
-div.news-item.row(ng-repeat="match in matches")
+div.curious-food-match(ng-repeat="match in matches")
+	//- tracking and duplicates might be helpful,if you want to switch things up
 	//- h4 You have similar interests with these peoples
 	h4 {{match}}
 	
 	
 
-h3 Browse the curious food library
-div.news-item.row(ng-repeat="curiousFood in curiousFoods")
-	
-	h4 {{curiousFood}}
-	//- how do I get the persons name to show up next to their food item
-	//- div.news-item.row(ng-repeat="profile in profiles")
-	//- 	h6 {{profile.name}} balla
+
+h3 Browse the curious foods library
+div(ng-repeat="profile in profiles")
+	div(ng-repeat="curiousFood in profile.curiousFoods")
+		h4 {{curiousFood}}
+		a(ng-href="#/view/{{profile._id}}") Connect...
+		//- how do I get the persons name to show up next to their food item
+		//- div.news-item.row(ng-repeat="profile in profiles")
+		//- 	h6 {{profile.name}} balla
+

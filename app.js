@@ -20,11 +20,11 @@ app.get('/', indexController.index);
 app.get('/templates/:templateName', indexController.templates);
 
 // Api methods:
-app.get('/api/aip', apiController.getAll);
-app.post('/api/aip', apiController.addProfile);
+app.get('/api/profile', apiController.getAll);
+app.post('/api/profile', apiController.addProfile);
 app.get('/api/snacks', apiController.snacks);
 app.get('/api/curious_foods_library', apiController.curiousFoods);
-app.delete('/api/aip/:aipId', apiController.deleteProfile);
+app.delete('/api/profile/:profileId', apiController.deleteProfile);
 app.get('/api/shared_curious_foods/:name', apiController.sharedCuriousFoods);
 
 var server = app.listen(7600, function() {

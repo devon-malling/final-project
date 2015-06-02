@@ -6,7 +6,7 @@ var apiController = {
 	getAll: function(req, res){
 		var requestedId = req.query._id;
 		if(requestedId){
-			Profile.findById(requestId, function(err, result){
+			Profile.findById(requestedId, function(err, result){
 				
 				res.send(result);
 			});
@@ -37,21 +37,22 @@ var apiController = {
 	snacks: function(req, res){
 		// This my friend, is how you locate the snacks inside all users profiles
 		Profile.find({}, function(err, profiles){
-			var snacks = _.chain(profiles)
-				.pluck('snacks').flatten()
-				.uniq()
-				.value();
-			res.send(snacks);
+			// var snacks = _.chain(profiles)
+			// 	.pluck('snacks').flatten()
+			// 	.uniq()
+			// 	.value();
+			// console.log(snacks);
+			res.send(profiles);
 		});
 	},
 	curiousFoods: function(req, res) {
 		Profile.find({}, function(err, profiles){
-			var curiousFoods = _.chain(profiles)
-				.pluck('curiousFoods').flatten()
-				.uniq()
-				.value();
+			// var curiousFoods = _.chain(profiles)
+			// 	.pluck('curiousFoods').flatten()
+			// 	.uniq()
+			// 	.value();
 			
-			res.send(curiousFoods);
+			res.send(profiles);
 		});
 	},
 	sharedCuriousFoods: function(req, res){
@@ -86,7 +87,7 @@ var apiController = {
 						if(commonInterest){
 							// push the name of that user to the matches 
 							// array
-							matches.push(usersToSearch[i].name);
+						matches.push(usersToSearch[i].name);
 						}
 					}
 				}
