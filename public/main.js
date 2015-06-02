@@ -4,7 +4,7 @@ aipApp.config(function($routeProvider){
 	$routeProvider
 	// this is a route provider on the client side
 		.when('/',{
-			templateUrl: '/templates/home',
+			templateUrl: '/templates/createProfile',
 			controller: 'aipProfileListController'
 		})
 		// use this when you want to create a view for your individual profiles

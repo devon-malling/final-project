@@ -3,4 +3,14 @@ extends layout
 block content
 	h1 Welcome to the AutoIimmune Paleo Communtity!
 
+	ul.nav.nav-tabs
+	li.active(role='presentation')
+			a(href='#/create_profile') Create Profile
+		li(role='presentation')
+			a(href='#/snack_library') Snack Library
+		li(role='presentation')
+			a(href='#/curious_foods_library') Curious Foods Library
+		li(role='presentation')
+			a(href='#/profile_page') Profiles
+
 	div(ng-view)

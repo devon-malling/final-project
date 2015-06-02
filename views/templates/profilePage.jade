@@ -1,0 +1,7 @@
+h2 Browse profiles
+input(type="text", placeholder="Search...", ng-model="seach")
+//- 'profiles' here is the main connector all the way back to your aip factory
+div(ng-repeat="profile in profiles | filter: search")
+	//- profileTemplate relates to profileTemplate.jade
+	//- this is creating a custom attribute
+	profiletemplate(profile="profile")
