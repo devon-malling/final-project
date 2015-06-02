@@ -1,3 +1,7 @@
 a(class='button' href="#/") Home
-div.news-item.row(ng-repeat="snack in snacks")
-	h4 {{snack}}
+
+h3 Browse the snacks library
+div(ng-repeat="profile in profiles")
+	div(ng-repeat="snack in profile.snacks")
+		h4 {{snack}}
+		a(ng-href="#/view/{{profile._id}}") Connect...

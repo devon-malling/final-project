@@ -1,4 +1,5 @@
 .col-sm-10
 	h3 {{profile.name}}
-	//- a(ng-href="#/view/{{profile._id}}") View
+	a(ng-href="#/view/{{profile._id}}") View
+	&nbsp
 	button.btn.btn-default(ng-click="deleteProfile(profile)") Delete

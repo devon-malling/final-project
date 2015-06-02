@@ -21,7 +21,7 @@ app.get('/templates/:templateName', indexController.templates);
 
 // Api methods:
 app.get('/api/profile', apiController.getAll);
-app.post('/api/proflie', apiController.addProfile);
+app.post('/api/profile', apiController.addProfile);
 app.get('/api/snacks', apiController.snacks);
 app.get('/api/curious_foods_library', apiController.curiousFoods);
 app.delete('/api/profile/:profileId', apiController.deleteProfile);

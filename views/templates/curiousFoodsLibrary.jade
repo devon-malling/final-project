@@ -15,9 +15,10 @@ div.news-item.row(ng-repeat="match in matches")
 	
 
 h3 Browse the curious foods library
-div.news-item.row(ng-repeat="curiousFood in curiousFoods")
-	
-	h4 {{curiousFood}}
-	//- how do I get the persons name to show up next to their food item
-	//- div.news-item.row(ng-repeat="profile in profiles")
-	//- 	h6 {{profile.name}} balla
+div(ng-repeat="profile in profiles")
+	div(ng-repeat="curiousFood in profile.curiousFoods")
+		h4 {{curiousFood}}
+		a(ng-href="#/view/{{profile._id}}") Connect...
+		//- how do I get the persons name to show up next to their food item
+		//- div.news-item.row(ng-repeat="profile in profiles")
+		//- 	h6 {{profile.name}} balla
