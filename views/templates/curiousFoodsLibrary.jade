@@ -7,7 +7,7 @@ form(ng-submit="sharedCuriousFoods()").well
 	.form-group
 		input.btn.btn-default(type="submit", value="Look...")
 
-div.news-item.row(ng-repeat="match in matches")
+div.curious-food-match(ng-repeat="match in matches")
 	//- tracking and duplicates might be helpful,if you want to switch things up
 	//- h4 You have similar interests with these peoples
 	h4 {{match}}
