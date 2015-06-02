@@ -62,7 +62,7 @@ aipApp.factory('snackLibrary', function($resource){
 // snacks controller
 aipApp.controller('snackLibraryController', function($scope, snackLibrary){
 	// this was scope.snacks before, but now you can view the profile when you click on view
-	$scope.profiles = snackLibrary.snacks;
+	$scope.profiles = snackLibrary.model.query();
 	// console.log(' SNACK TEST', $scope.snacks);
 });
 
@@ -78,7 +78,7 @@ aipApp.factory('curiousFoodsLibrary', function($resource){
 // curiousFoodsController
 aipApp.controller('curiousFoodsLibraryController', function($scope, $http, curiousFoodsLibrary){
 	console.log('CURIOUS FOODS TEST', $scope.curiousFoods);
-	$scope.profiles = curiousFoodsLibrary.curiousFoods;
+	$scope.profiles = curiousFoodsLibrary.model.query();
 	$scope.name = '';
 	$scope.sharedCuriousFoods = function(){
 		console.log($scope.name);
