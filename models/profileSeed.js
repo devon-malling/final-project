@@ -5,7 +5,7 @@ Profile.find({}, function(err, results){
 		var p1 = new Profile({
 			name: 'Devon',
 			staples: ['baked sweet potato','roasted sweet potato', 'roasted chicken'],
-			snacks: ['cricket butter', 'beef jerky'],
+			snacks: ['rice crackers with prosciutto', 'beef jerky'],
 			curiousFoods: ['organ meats', 'chayote']
 		});
 		p1.save();
