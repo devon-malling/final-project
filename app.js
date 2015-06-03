@@ -4,7 +4,7 @@ var indexController = require('./controllers/index.js');
 var apiController = require('./controllers/api.js');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/angular-aip-profiles');
+mongoose.connect(process.env.MONGOLAB_URI || "mongodb://localhost/angular-aip-profiles");
 // setting the database
 require('./models/profileSeed.js');
 
