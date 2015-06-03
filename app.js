@@ -27,6 +27,6 @@ app.get('/api/curious_foods_library', apiController.curiousFoods);
 app.delete('/api/profile/:profileId', apiController.deleteProfile);
 app.get('/api/shared_curious_foods/:name', apiController.sharedCuriousFoods);
 
-var server = app.listen(7600, function() {
+var server = app.listen(process.env.PORT || 7600, function() {
 	console.log('Express server listening on port ' + server.address().port);
 });
